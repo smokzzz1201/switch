@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switcher</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" id="switcher-id" href="">
+</head>
+
+<body>
+       
+
+ 
+        <div class="box">
+            <div class="container">
+                <h1>Switch </h1>
+                   <button  data-theme="switch1" class="switch" id="switch-1">Switch</button>
+                   <button  data-theme="switch2" class="switch" id="switch-2">Switch</button>
+                <div class="text">
+                <p>Text texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let switches = document.getElementsByClassName('switch');
+let style = localStorage.getItem('style');
+
+if (style == null) {
+  setTheme('switch1');
+} else {
+  setTheme(style);
+}
+
+for (let i of switches) {
+  i.addEventListener('click', function () {
+    let theme = this.dataset.theme;
+    setTheme(theme);
+  });
+}
+
+function setTheme(theme) {
+  if (theme == 'switch1') {
+    document.getElementById('switcher-id').href = './switch1.css';
+  }else if (theme == 'switch2') {
+    document.getElementById('switcher-id').href = './switch2.css';
+  }
+  localStorage.setItem('style', theme);
+}
+
+    </script>
+</body>
+
+</html>
